@@ -2,33 +2,36 @@ package ru.netology.hw5_1.services;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 //import ru.netology.hw5_1.services.RestServices;
 
 public class RestServicesTest {
-    @Test
-    public void CalculateRestMonthes1() {
+    @ParameterizedTest
+    @CsvFileSource(files = "src/test/resources/rest.csv")
+    public void CalculateRestMonthes1(int expected, int income, int expenses, int threshold) {
         RestServices service = new RestServices();
 
-        int expected = 3;
-        int income = 10_000;
-        int expenses = 3_000;
-        int threshold = 20_000;
+//        int expected = 3;
+//        int income = 10_000;
+//        int expenses = 3_000;
+//        int threshold = 20_000;
         int actual = service.calculate(income, expenses, threshold);
 
         Assertions.assertEquals(expected, actual);
     }
 
-    @Test
-    public void CalculateRestMonthes2() {
-        RestServices service = new RestServices();
+//    @Test
+//    public void CalculateRestMonthes2() {
+//        RestServices service = new RestServices();
 
-        int expected = 2;
-        int income = 100_000;
-        int expenses = 60_000;
-        int threshold = 150_000;
-        int actual = service.calculate(income, expenses, threshold);
+    //       int expected = 2;
+    //       int income = 100_000;
+    //       int expenses = 60_000;
+//        int threshold = 150_000;
+//        int actual = service.calculate(income, expenses, threshold);
 
-        Assertions.assertEquals(expected, actual);
-    }
+    //       Assertions.assertEquals(expected, actual);
+//    }
 
 }
